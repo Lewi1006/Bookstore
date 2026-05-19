@@ -55,15 +55,25 @@ body {
       width: auto;
       height: 50px;
       display: flex;
-      justify-content: space-between;
+      gap: 6px;
       align-items: center;
 
       .counter {
       }
 
-      img {
-        height: 30px;
-        width: auto;
+      .like {
+        font-size: 30px;
+      }
+
+      .like:hover{
+        color: rgba(255, 0, 0, 1);
+        cursor: pointer;
+      }
+
+      .unlike{
+        color: rgba(255, 0, 0, 1);
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
       }
     }
   }

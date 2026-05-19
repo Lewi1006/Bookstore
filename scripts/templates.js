@@ -8,9 +8,9 @@ function getBookTemplate(indexBooks) {
   <div class="book-price-likes">
       <h2 class="price">${books[indexBooks].price} €</h2>
       <div class="likes-wrapper">
-          <p id="counter">${books[indexBooks].likes}</p>
-          <button class="heartbtn" tabindex="0" onclick="addLike(${indexBooks})"><img onclick="" src="./assets/icons/favorite.png" alt="red heart icon"/> </button>
-      </div>
+          <p class="counter">${books[indexBooks].likes}</p>
+          <button class="like" tabindex="0" onclick="addLike(${indexBooks})">&#9825;</button>
+          </div>
   </div>
   <table class="book-info-table">
   <tbody>

@@ -18,3 +18,6 @@ function addLike(indexBooks){
         books[indexBooks].likes++;
         renderBookCard();
 }
+
+
+// &#9829;
