@@ -38,20 +38,36 @@ function getBookTemplate(indexBooks) {
   </tbody> 
   </table>
 
-
-  <div>
-  <h3>Comments:</h3>
-   <table>
-  <tbody>
-  <tr>
-  <th></th>
-  <tr>
-  <td></td>
-  </tr>
-  </tbody>
-  </table>
-  <input>
-  </div>
-  </div>
+  ${getCommentsTemplate(indexBooks)}
   `;
+}
+
+
+function getCommentsTemplate(indexBooks){
+
+  let commentsSection = "";
+   for(let indexComments = 0; indexComments < books[indexBooks].comments.length; indexComments++){
+    commentsSection +=
+    `
+    <tr>
+    <th class="user-name">${books[indexBooks].comments[indexComments].name}</th>
+    <td class="comment">${books[indexBooks].comments[indexComments].comment}</td>
+    </tr>
+    `
+   } 
+
+  return `
+    <div id="comments">
+    <h3>Comments:</h3>
+    <div class="comments-table-wrapper">
+    <table>
+    <tbody>
+    ${commentsSection}
+    </tbody>
+    </table>
+    <input>
+    
+    </div>
+    </div>
+  `
 }

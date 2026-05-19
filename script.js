@@ -9,7 +9,7 @@ function renderBookCard() {
     let bookCardRef = document.getElementById("book-card");
     bookCardRef.innerHTML = "";
     for (let indexBooks = 0; indexBooks < books.length; indexBooks++){
-        bookCardRef.innerHTML += getBookTemplate(indexBooks)
+        bookCardRef.innerHTML += getBookTemplate(indexBooks);
     } 
 }
 
@@ -32,5 +32,10 @@ function countLike(indexBooks){
 // &#9829;
 
 function renderComments(){
+    // let commentsRef = document.getElementById("comments");
+    // commentsRef.innerHTML = "";
+    // for(let indexComments = 0; indexComments < books[indexBooks].comments.length; indexComments++){
+    //     commentsRef.innerHTML += getCommentsTemplate(indexComments);
+    // }
     
 }
