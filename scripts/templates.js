@@ -1,0 +1,57 @@
+
+// add book card
+function getBookTemplate(indexBooks) {
+  
+  // toFixed converts number to a string so that decimal numbers are displayed 
+  // --> otherwise the 0 of price in objects falls away 
+  // --> 14.50 gets displayed as 14.5 cause for numbers the 0 has no mathematical meaning
+  // then we call the variable price in h2
+  let price = books[indexBooks].price.toFixed(2);
+
+
+  return `
+
+<div class="book-card-wrapper">
+  <h1>${books[indexBooks].name}</h1>
+  <img src="./assets/icons/open_book.svg" alt="open book icon"/>
+  <div class="book-price-likes">
+      <h2 class="price">${price} €</h2>
+      <div class="likes-wrapper">
+          <p class="counter">${books[indexBooks].likes}</p>
+          <button class="like" tabindex="0" onclick="countLike(${indexBooks})">&#9825;</button>
+          </div>
+  </div>
+  <table class="book-info-table">
+  <tbody>
+  <tr>
+  <th>Author:</th>
+  <td>${books[indexBooks].author}</td>
+  </tr>
+  <tr>
+  <th>Published:</th>
+  <td>${books[indexBooks].publishedYear}</td>
+  </tr>
+ <tr>
+ <th>Genre:</th>
+ <td>${books[indexBooks].genre}</td>
+  </tr>
+  </tbody> 
+  </table>
+
+
+  <div>
+  <h3>Comments:</h3>
+   <table>
+  <tbody>
+  <tr>
+  <th></th>
+  <tr>
+  <td></td>
+  </tr>
+  </tbody>
+  </table>
+  <input>
+  </div>
+  </div>
+  `;
+}
