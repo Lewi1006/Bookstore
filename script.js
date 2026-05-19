@@ -14,6 +14,7 @@ function renderBookCard() {
 }
 
 
-function addLike(){
-    // if heart onclick true then increase counter 
+function addLike(indexBooks){
+        books[indexBooks].likes++;
+        renderBookCard();
 }
