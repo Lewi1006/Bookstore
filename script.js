@@ -30,3 +30,7 @@ function countLike(indexBooks){
 
 
 // &#9829;
+
+function renderComments(){
+    
+}
