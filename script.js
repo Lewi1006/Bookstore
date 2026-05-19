@@ -12,3 +12,8 @@ function renderBookCard() {
         bookCardRef.innerHTML += getBookTemplate(indexBooks)
     } 
 }
+
+
+function addLike(){
+    // if heart onclick true then increase counter 
+}
