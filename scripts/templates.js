@@ -12,6 +12,7 @@ function getBookTemplate(indexBooks) {
   let heart = "";
   if(books[indexBooks].liked === true){
     heart = "&#9829;";
+
   } else {
     heart = "&#9825;";
   }
@@ -66,7 +67,7 @@ function getCommentsTemplate(indexBooks){
        <h3>Comments:</h3>
        ${commentsSection}
        <div class="comments-input-section">
-       <input id="comments_input${indexBooks}" class="comments-input" type="text"/>
+       <input id="comments_input${indexBooks}" class="comments-input" type="text" placeholder="Add your comment"/>
        <button class="add-button" onclick="addComment(${indexBooks})">+</button>
        </div>
        </div>
@@ -95,7 +96,7 @@ function getCommentsTemplate(indexBooks){
        </div>
 
        <div class="comments-input-section">
-       <input id="comments_input${indexBooks}" class="comments-input" type="text"/>
+       <input id="comments_input${indexBooks}" class="comments-input" type="text" placeholder="Add your comment"/>
        <button class="add-button" onclick="addComment(${indexBooks})">+</button>
        </div>
 
