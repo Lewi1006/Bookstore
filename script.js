@@ -30,9 +30,37 @@ function countLike(indexBooks){
 
 
 
-function addComment(){
-    
+function addComment(indexBooks){
+let commentsInputRef = document.getElementById("comments_input");
+
+let newComment = commentsInputRef.value; 
+books[indexBooks].comments.push({name: "User", comment: newComment});
+
+renderBookCard();
+
+commentsInputRef.value = "";
 }
+
+//  let noteTitleRef = document.getElementById("note_input_title");
+//   let noteInputRef = document.getElementById("note_input");
+
+//   let noteTitle = noteTitleRef.value;
+//   let noteInput = noteInputRef.value;
+
+//   notesTitles.push(noteTitle);
+//   notes.push(noteInput);
+
+//   saveToLocalStorage();
+
+//   renderNotes();
+
+//   noteTitleRef.value = "";
+//   noteInputRef.value = "";
+
+
+
+
+
 // &#9829;
 
 // function renderComments(){
