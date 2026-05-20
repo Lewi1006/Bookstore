@@ -141,6 +141,9 @@ body {
       height: 20px;
       border: 2px solid blue;
       border-radius: 15px;
+      padding-left: 8px;
+      caret-color: blue;
+      
     }
 
     .add-button{

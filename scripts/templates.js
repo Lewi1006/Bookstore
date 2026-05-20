@@ -8,6 +8,14 @@ function getBookTemplate(indexBooks) {
   // then we call the variable price in h2
   let price = books[indexBooks].price.toFixed(2);
 
+  // change heart color depending on if it is liked or not 
+  let heart = "";
+  if(books[indexBooks].liked === true){
+    heart = "&#9829;";
+  } else {
+    heart = "&#9825;";
+  }
+
 
   return `
 
@@ -18,7 +26,7 @@ function getBookTemplate(indexBooks) {
       <h2 class="price">${price} €</h2>
       <div class="likes-wrapper">
           <p class="counter">${books[indexBooks].likes}</p>
-          <button class="like" tabindex="0" onclick="countLike(${indexBooks})">&#9825;</button>
+          <button class="like" tabindex="0" onclick="countLike(${indexBooks})">${heart}</button>
           </div>
   </div>
   <table class="book-info-table">
@@ -90,7 +98,7 @@ function getCommentsTemplate(indexBooks){
        <input id="comments_input" type="text"/>
        <button class="add-button" onclick="addComment(${indexBooks})">+</button>
        </div>
-       
+
        </div>
      `
 

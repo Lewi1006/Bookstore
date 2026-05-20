@@ -20,7 +20,7 @@ function countLike(indexBooks){
         books[indexBooks].liked = false;
         books[indexBooks].likes--;
 
-    } else if(books[indexBooks].liked === false){
+    } else if (books[indexBooks].liked === false){
         books[indexBooks].liked = true;
         books[indexBooks].likes++;
     }
@@ -40,24 +40,6 @@ renderBookCard();
 
 commentsInputRef.value = "";
 }
-
-//  let noteTitleRef = document.getElementById("note_input_title");
-//   let noteInputRef = document.getElementById("note_input");
-
-//   let noteTitle = noteTitleRef.value;
-//   let noteInput = noteInputRef.value;
-
-//   notesTitles.push(noteTitle);
-//   notes.push(noteInput);
-
-//   saveToLocalStorage();
-
-//   renderNotes();
-
-//   noteTitleRef.value = "";
-//   noteInputRef.value = "";
-
-
 
 
 
