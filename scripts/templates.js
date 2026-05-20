@@ -8,6 +8,15 @@ function getBookTemplate(indexBooks) {
   // then we call the variable price in h2
   let price = books[indexBooks].price.toFixed(2);
 
+  // change heart color depending on if it is liked or not 
+  let heart = "";
+  if(books[indexBooks].liked === true){
+    heart = "&#9829;";
+
+  } else {
+    heart = "&#9825;";
+  }
+
 
   return `
 
@@ -18,7 +27,7 @@ function getBookTemplate(indexBooks) {
       <h2 class="price">${price} €</h2>
       <div class="likes-wrapper">
           <p class="counter">${books[indexBooks].likes}</p>
-          <button class="like" tabindex="0" onclick="countLike(${indexBooks})">&#9825;</button>
+          <button class="like" tabindex="0" onclick="countLike(${indexBooks})">${heart}</button>
           </div>
   </div>
   <table class="book-info-table">
@@ -38,20 +47,61 @@ function getBookTemplate(indexBooks) {
   </tbody> 
   </table>
 
-
-  <div>
-  <h3>Comments:</h3>
-   <table>
-  <tbody>
-  <tr>
-  <th></th>
-  <tr>
-  <td></td>
-  </tr>
-  </tbody>
-  </table>
-  <input>
-  </div>
-  </div>
+  ${getCommentsTemplate(indexBooks)}
   `;
+}
+
+
+
+
+function getCommentsTemplate(indexBooks){
+
+  let commentsSection = "";
+
+  if(books[indexBooks].comments.length === 0){
+    commentsSection +=
+    `<p>no comments yet, be the first</p>`
+
+        return `
+       <div class="comments">
+       <h3>Comments:</h3>
+       ${commentsSection}
+       <div class="comments-input-section">
+       <input id="comments_input${indexBooks}" class="comments-input" type="text" placeholder="Add your comment"/>
+       <button class="add-button" onclick="addComment(${indexBooks})">+</button>
+       </div>
+       </div>
+     `
+  } else{
+
+    for(let indexComments = 0; indexComments < books[indexBooks].comments.length; indexComments++){
+        commentsSection +=
+        `
+        <tr>
+        <th class="user-name">${books[indexBooks].comments[indexComments].name}</th>
+        <td class="comment">${books[indexBooks].comments[indexComments].comment}</td>
+        </tr>
+        `
+     }
+
+     return `
+       <div class="comments">
+       <h3>Comments:</h3>
+       <div class="comments-table-wrapper">
+       <table>
+       <tbody>
+       ${commentsSection}
+       </tbody>
+       </table>
+       </div>
+
+       <div class="comments-input-section">
+       <input id="comments_input${indexBooks}" class="comments-input" type="text" placeholder="Add your comment"/>
+       <button class="add-button" onclick="addComment(${indexBooks})">+</button>
+       </div>
+
+       </div>
+     `
+
+    } 
 }
