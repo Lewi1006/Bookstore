@@ -59,8 +59,8 @@ body {
       gap: 6px;
       align-items: center;
 
-      .counter {
-      }
+      /* .counter {
+      } */
 
       .like {
         font-size: 30px;
