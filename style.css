@@ -95,7 +95,7 @@ body {
     }
   }
 
-  #comments {
+  .comments {
     width: 100%;
     height: 140px;
 
@@ -132,11 +132,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* position: absolute;
-    bottom: 0; */
+    position: absolute;
+    bottom: 0;
 
 
-    #comments_input{
+    .comments-input{
       width: 90%;
       height: 20px;
       border: 2px solid blue;

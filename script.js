@@ -31,7 +31,7 @@ function countLike(indexBooks){
 
 
 function addComment(indexBooks){
-let commentsInputRef = document.getElementById("comments_input");
+let commentsInputRef = document.getElementById(`comments_input${indexBooks}`);
 
 let newComment = commentsInputRef.value; 
 books[indexBooks].comments.push({name: "User", comment: newComment});

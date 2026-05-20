@@ -62,11 +62,11 @@ function getCommentsTemplate(indexBooks){
     `<p>no comments yet, be the first</p>`
 
         return `
-       <div id="comments">
+       <div class="comments">
        <h3>Comments:</h3>
        ${commentsSection}
        <div class="comments-input-section">
-       <input id="comments_input" type="text"/>
+       <input id="comments_input${indexBooks}" class="comments-input" type="text"/>
        <button class="add-button" onclick="addComment(${indexBooks})">+</button>
        </div>
        </div>
@@ -84,7 +84,7 @@ function getCommentsTemplate(indexBooks){
      }
 
      return `
-       <div id="comments">
+       <div class="comments">
        <h3>Comments:</h3>
        <div class="comments-table-wrapper">
        <table>
@@ -95,7 +95,7 @@ function getCommentsTemplate(indexBooks){
        </div>
 
        <div class="comments-input-section">
-       <input id="comments_input" type="text"/>
+       <input id="comments_input${indexBooks}" class="comments-input" type="text"/>
        <button class="add-button" onclick="addComment(${indexBooks})">+</button>
        </div>
 
