@@ -43,31 +43,56 @@ function getBookTemplate(indexBooks) {
 }
 
 
+
+
 function getCommentsTemplate(indexBooks){
 
   let commentsSection = "";
-   for(let indexComments = 0; indexComments < books[indexBooks].comments.length; indexComments++){
-    commentsSection +=
-    `
-    <tr>
-    <th class="user-name">${books[indexBooks].comments[indexComments].name}</th>
-    <td class="comment">${books[indexBooks].comments[indexComments].comment}</td>
-    </tr>
-    `
-   } 
 
-  return `
-    <div id="comments">
-    <h3>Comments:</h3>
-    <div class="comments-table-wrapper">
-    <table>
-    <tbody>
-    ${commentsSection}
-    </tbody>
-    </table>
-    <input>
-    
-    </div>
-    </div>
-  `
+  if(books[indexBooks].comments.length === 0){
+    commentsSection +=
+    `<p>no comments yet, be the first</p>`
+
+        return `
+       <div id="comments">
+       <h3>Comments:</h3>
+       ${commentsSection}
+       <div class="input">
+       <input id="comments_input" type="text"/>
+       <button class="add-button" onclick="addComment()">+</button>
+       </div>
+       </div>
+     `
+  } else{
+
+    for(let indexComments = 0; indexComments < books[indexBooks].comments.length; indexComments++){
+        commentsSection +=
+        `
+        <tr>
+        <th class="user-name">${books[indexBooks].comments[indexComments].name}</th>
+        <td class="comment">${books[indexBooks].comments[indexComments].comment}</td>
+        </tr>
+        `
+     }
+
+     return `
+       <div id="comments">
+       <h3>Comments:</h3>
+       <div class="comments-table-wrapper">
+       <table>
+       <tbody>
+       ${commentsSection}
+       </tbody>
+       </table>
+       </div>
+       <div class="input">
+       <input id="comments_input" type="text"/>
+       <button class="add-button" onclick="addComment()">+</button>
+       </div>
+       </div>
+     `
+
+    } 
+
+
 }

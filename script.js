@@ -29,13 +29,16 @@ function countLike(indexBooks){
 }
 
 
-// &#9829;
 
-function renderComments(){
-    // let commentsRef = document.getElementById("comments");
-    // commentsRef.innerHTML = "";
-    // for(let indexComments = 0; indexComments < books[indexBooks].comments.length; indexComments++){
-    //     commentsRef.innerHTML += getCommentsTemplate(indexComments);
-    // }
+function addComment(){
     
 }
+// &#9829;
+
+// function renderComments(){
+//     // let commentsRef = document.getElementById("comments");
+//     // commentsRef.innerHTML = "";
+//     // for(let indexComments = 0; indexComments < books[indexBooks].comments.length; indexComments++){
+//     //     commentsRef.innerHTML += getCommentsTemplate(indexComments);
+//     // }
+// }
