@@ -4,7 +4,10 @@ function init() {
   renderBookCard();
 }
 
-//
+// #region RENDER FUNCTIONS
+
+// renders book objects with for loop from array into book cards 
+// --> refers to html object (in index.html) with id=book-card
 function renderBookCard() {
   let bookCardRef = document.getElementById("book-card");
   bookCardRef.innerHTML = "";
@@ -12,6 +15,24 @@ function renderBookCard() {
     bookCardRef.innerHTML += getBookTemplate(indexBooks);
   }
 }
+
+
+// renders likes seperately so that when book is liked or unliked 
+// it doesn't have to execute renderBooks, which would unneccesarily render all cards
+// we want to put data in div in getBookTemplate (refer to ID here)
+// 
+function renderLikes(indexBooks){
+  let likesWrapperRef = document.getElementById(`likes_wrapper${indexBooks}`);
+  likesWrapperRef.innerHTML = getLikesTemplate(indexBooks);
+}
+
+
+function renderComments(indexBooks){
+ let commentsRef = document.getElementById(`comments${indexBooks}`);
+ commentsRef.innerHTML = getCommentsTemplate(indexBooks);
+}
+
+// #endregion
 
 // when button is clicked (heart is already red/liked = true) --> then it turns false and count goes down and vive versa
 function countLike(indexBooks) {
@@ -24,8 +45,24 @@ function countLike(indexBooks) {
   }
 
   saveToLocalStorage();
-  renderBookCard();
+  renderLikes(indexBooks);
 }
+
+
+function changeColorLike(indexBooks){
+      // change heart color depending on if it is liked or not 
+  let heart = "";
+  if(books[indexBooks].liked === true){
+    heart = "&#9829;";
+
+  } else {
+    heart = "&#9825;";
+  }
+
+  return heart;
+}
+
+
 
 function addComment(indexBooks) {
   let commentsInputRef = document.getElementById(`comments_input${indexBooks}`);
@@ -37,7 +74,7 @@ function addComment(indexBooks) {
   commentsInputRef.value = "";
 
   saveToLocalStorage();
-  renderBookCard();
+  renderComments(indexBooks);
 
 }
 

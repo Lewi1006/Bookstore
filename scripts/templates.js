@@ -8,16 +8,6 @@ function getBookTemplate(indexBooks) {
   // then we call the variable price in h2
   let price = books[indexBooks].price.toFixed(2);
 
-  // change heart color depending on if it is liked or not 
-  let heart = "";
-  if(books[indexBooks].liked === true){
-    heart = "&#9829;";
-
-  } else {
-    heart = "&#9825;";
-  }
-
-
   return `
 
 <div class="book-card-wrapper">
@@ -25,9 +15,8 @@ function getBookTemplate(indexBooks) {
   <img src="./assets/icons/open_book.svg" alt="open book icon"/>
   <div class="book-price-likes">
       <h2 class="price">${price} €</h2>
-      <div class="likes-wrapper">
-          <p class="counter">${books[indexBooks].likes}</p>
-          <button class="like" tabindex="0" aria-label="like or unlike this book" onclick="countLike(${indexBooks})">${heart}</button>
+        <div id="likes_wrapper${indexBooks}" class="likes-wrapper">
+        ${getLikesTemplate(indexBooks)}
       </div>
   </div>
   <table class="book-info-table" role="table">
@@ -47,14 +36,22 @@ function getBookTemplate(indexBooks) {
   </tbody> 
   </table>
 
-  ${getCommentsTemplate(indexBooks)}
+   <div id="comments${indexBooks}" class="comments">
+       ${getCommentsTemplate(indexBooks)}
+  </div>
+
 
   </div>
   `;
 }
 
 
-
+function getLikesTemplate(indexBooks){
+ return `
+          <p class="counter">${books[indexBooks].likes}</p>
+          <button class="like" tabindex="0" aria-label="like or unlike this book" onclick="countLike(${indexBooks})">${changeColorLike(indexBooks)}</button>
+ `;
+}
 
 function getCommentsTemplate(indexBooks){
 
@@ -65,13 +62,11 @@ function getCommentsTemplate(indexBooks){
     `<p>no comments yet, be the first</p>`
 
         return `
-       <div class="comments">
-       <h3>Comments:</h3>
+      <h3>Comments:</h3>
        ${commentsSection}
        <div class="comments-input-section">
        <input id="comments_input${indexBooks}" class="comments-input" type="text" placeholder="Add your comment"/>
        <button class="add-button" aria-label="add comment" onclick="addComment(${indexBooks})">+</button>
-       </div>
        </div>
      `
   } else{
@@ -87,7 +82,6 @@ function getCommentsTemplate(indexBooks){
      }
 
      return `
-       <div class="comments">
        <h3>Comments:</h3>
        <div class="comments-table-wrapper">
        <table role="table">
@@ -100,8 +94,6 @@ function getCommentsTemplate(indexBooks){
        <div class="comments-input-section">
        <input id="comments_input${indexBooks}" class="comments-input" aria-label="input a comment" type="text" placeholder="Add your comment"/>
        <button class="add-button" aria-label="add comment" onclick="addComment(${indexBooks})">+</button>
-       </div>
-
        </div>
      `
 
