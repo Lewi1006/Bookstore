@@ -27,10 +27,10 @@ function getBookTemplate(indexBooks) {
       <h2 class="price">${price} €</h2>
       <div class="likes-wrapper">
           <p class="counter">${books[indexBooks].likes}</p>
-          <button class="like" tabindex="0" onclick="countLike(${indexBooks})">${heart}</button>
-          </div>
+          <button class="like" tabindex="0" aria-label="like or unlike this book" onclick="countLike(${indexBooks})">${heart}</button>
+      </div>
   </div>
-  <table class="book-info-table">
+  <table class="book-info-table" role="table">
   <tbody>
   <tr>
   <th>Author:</th>
@@ -70,7 +70,7 @@ function getCommentsTemplate(indexBooks){
        ${commentsSection}
        <div class="comments-input-section">
        <input id="comments_input${indexBooks}" class="comments-input" type="text" placeholder="Add your comment"/>
-       <button class="add-button" onclick="addComment(${indexBooks})">+</button>
+       <button class="add-button" aria-label="add comment" onclick="addComment(${indexBooks})">+</button>
        </div>
        </div>
      `
@@ -90,7 +90,7 @@ function getCommentsTemplate(indexBooks){
        <div class="comments">
        <h3>Comments:</h3>
        <div class="comments-table-wrapper">
-       <table>
+       <table role="table">
        <tbody>
        ${commentsSection}
        </tbody>
@@ -98,8 +98,8 @@ function getCommentsTemplate(indexBooks){
        </div>
 
        <div class="comments-input-section">
-       <input id="comments_input${indexBooks}" class="comments-input" type="text" placeholder="Add your comment"/>
-       <button class="add-button" onclick="addComment(${indexBooks})">+</button>
+       <input id="comments_input${indexBooks}" class="comments-input" aria-label="input a comment" type="text" placeholder="Add your comment"/>
+       <button class="add-button" aria-label="add comment" onclick="addComment(${indexBooks})">+</button>
        </div>
 
        </div>
