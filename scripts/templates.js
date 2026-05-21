@@ -48,6 +48,8 @@ function getBookTemplate(indexBooks) {
   </table>
 
   ${getCommentsTemplate(indexBooks)}
+
+  </div>
   `;
 }
 
